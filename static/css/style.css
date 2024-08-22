@@ -99,6 +99,14 @@
   float: left
 }
 
+aside.hidden-caption a {
+  visibility: hidden;
+}
+
+aside.hidden-caption:hover a {
+  visibility: visible;
+}
+
 /* shortcodes css */
 .webring {
   margin: .375rem;
