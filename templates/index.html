@@ -1,29 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-{{ section.content | safe }}
+<div>
+  {% block image %}
+  <aside dir="rtl" class="float-left">
+    <img src="/self_portrait.jpg" alt="Portrait of Stephen Lazaro by Jessica Hayworth" />
+  </aside>
+  {% endblock image %}
+  {{ section.content | safe }}
 
-{% if config.extra.list_pages %}
+  {% if config.extra.list_pages %}
 
-{% if paginator %}
-{% set pages = paginator.pages %}
-{% else %}
-{% set pages = section.pages %}
-{% endif %}
+  {% if paginator %}
+  {% set pages = paginator.pages %}
+  {% else %}
+  {% set pages = section.pages %}
+  {% endif %}
 
-<ul class="titleList">
-{% for page in pages %}
-  <li>
-    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-    <br />
-    {{ page.description }}
-  </li>
-{% endfor %}
-</ul>
+  <ul class="titleList">
+  {% for page in pages %}
+    <li>
+      <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+      <br />
+      {{ page.description }}
+    </li>
+  {% endfor %}
+  </ul>
 
-{% if paginator %}
-<div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp {% if paginator.next %}<a href="{{ paginator.next }}">></a> &nbsp <a href="{{ paginator.last }}">⥸</a>{% endif %}</div>
-{% endif %}
-
-{% endif %}
+  {% if paginator %}
+  <div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp {% if paginator.next %}<a href="{{ paginator.next }}">></a> &nbsp <a href="{{ paginator.last }}">⥸</a>{% endif %}</div>
+  {% endif %}
+  {% endif %}
+</div>
 {% endblock content %}
