@@ -35,9 +35,9 @@
   {% endfor %}
 </ul>
 {% endif %}
-<span class="accent-data"><code class="language-bash">&gt; wc -w</code> = {{ page.word_count }}</span>
+<span class="accent-data"><code class="language-bash">&gt; wc -w</code> ~ {{ page.word_count }}</span>
 <br />
-<span class="accent-data">Reading time estimate = {{ page.reading_time }} minutes</span>
+<span class="accent-data">Reading time estimate ~ {{ page.reading_time }} minutes</span>
 <hr />
 
 {{ page.content | safe }}
