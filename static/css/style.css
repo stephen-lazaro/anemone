@@ -111,3 +111,7 @@ aside.hidden-caption:hover a {
 .webring {
   margin: .375rem;
 }
+
+a {
+  text-decoration: underline dashed;
+}
